@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PromotionController::class, 'index']);
-Route::post('/promotions', [PromotionController::class, 'store'])->name('promotions.store');
+Route::controller(PromotionController::class)->group(function() {
+    Route::get('/', 'index')->name('promotion.index');
+
+    Route::get('/create', 'create')->name('promotion.create');
+    Route::post('/promotions', 'store')->name('promotion.store');
+
+    Route::get('/update/{promotion}', 'edit')->name('promotion.edit');
+    Route::post('/update/{promotion}', 'update')->name('promotion.update');
+
+    Route::get('/delete/{promotion}', 'delete')->name('promotion.delete');
+});
+

@@ -11,9 +11,14 @@ class PromotionController extends Controller
     {
         $promotions = Promotion::all();
 
-        return view('promotions', [
+        return view('promotion.index', [
             'promotions' => $promotions
         ]);
+    }
+
+    protected function create()
+    {
+        return view('promotion.create');
     }
 
     protected function store(Request $request)
@@ -26,7 +31,32 @@ class PromotionController extends Controller
             'title' => $request->get('title')
         ]);
 
-        return back()
+        return redirect()
+            ->route('promotion.index')
             ->with('success', 'Promotion créée avec succès');
+    }
+
+    protected function edit(Promotion $promotion)
+    {
+        return view('promotion.edit', [
+            'promotion' => $promotion
+        ]);
+    }
+
+    protected function update(Request $request, Promotion $promotion)
+    {
+        $promotion->update($request->input());
+
+        return redirect()
+            ->route('promotion.index')
+            ->with('success', 'La promotion a été mise à jour avec succès');
+    }
+
+    protected function delete(Promotion $promotion)
+    {
+        $promotion->delete();
+
+        return back()
+            ->with('success', 'Promotion supprimée avec succès');
     }
 }
