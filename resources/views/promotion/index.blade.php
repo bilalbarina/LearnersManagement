@@ -16,18 +16,31 @@
         <br>
         <br>
     @endif
-    <a href="{{ route('promotion.create') }}">
-    <button> Ajouter </button>
-    </a>
-    <ul>
-        @foreach ($promotions as $promotion)
-            <li>
-                {{ $promotion->title }}
-                <a href="{{ route('promotion.edit', ['promotion' => $promotion]) }}">Edit</a>
-                <a href="{{ route('promotion.delete', ['promotion' => $promotion]) }}">Delete</a>
-            </li>
-        @endforeach
-    </ul>
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <input type="text" placeholder="Search" id="search-input">
+        </div>
+        <div>
+            <a href="{{ route('promotion.create') }}">
+                <button> Ajouter </button>
+            </a>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div id="promotions">
+        <ul>
+            @foreach ($promotions as $promotion)
+                <li>
+                    {{ $promotion->title }}
+                    <a href="{{ route('promotion.edit', ['promotion' => $promotion]) }}"> Edit </a>
+                    <a href="{{ route('promotion.delete', ['promotion' => $promotion]) }}"> Delete </a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>

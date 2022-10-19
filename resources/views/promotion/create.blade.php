@@ -14,8 +14,6 @@
         <input type="text" name="title" placeholder="Title">
         <input type="submit" value="Create Promotion">
     </form>
-
     </ul>
 </body>
-
 </html>

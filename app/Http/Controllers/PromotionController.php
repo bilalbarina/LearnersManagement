@@ -59,4 +59,13 @@ class PromotionController extends Controller
         return back()
             ->with('success', 'Promotion supprimée avec succès');
     }
+
+    protected function search(Request $request)
+    {
+        $title = $request->input('title');
+
+        $promotions = Promotion::where('title', 'LIKE', "%$title%")->get();
+        
+        return response()->json($promotions);
+    }
 }

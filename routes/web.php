@@ -24,5 +24,7 @@ Route::controller(PromotionController::class)->group(function() {
     Route::post('/update/{promotion}', 'update')->name('promotion.update');
 
     Route::get('/delete/{promotion}', 'delete')->name('promotion.delete');
+
+    Route::get('/search', 'search');
 });
 
