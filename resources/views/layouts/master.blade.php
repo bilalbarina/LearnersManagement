@@ -16,7 +16,7 @@
             {{ $errors->first() }}
         </div>
     @elseif (Session::has('success'))
-        <div class="text-white bg-green-500 w-full py-2 text-sm font-semibold text-center" id="success">
+        <div class="absolute top-0 inset-x-0 text-white bg-green-500 w-full py-2 text-sm font-semibold text-center" id="success">
             {{ Session::get('success') }}
         </div>
     @endif
