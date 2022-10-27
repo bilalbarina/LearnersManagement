@@ -19,10 +19,8 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('token');
-            $table->string('promotion_token');
-            // $table->foreign('promotion_token')
-            //     ->references('token')
-            //     ->on('promotions');
+            $table->string('promotion_token')
+                ->index('promotion_token');
             $table->string('photo_color');
             $table->timestamps();
         });

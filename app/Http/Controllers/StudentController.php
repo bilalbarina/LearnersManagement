@@ -85,8 +85,8 @@ class StudentController extends Controller
         //     ->paginate(5);
 
         $students = Student::where('promotion_token', $promotion->token)
-            ->whereRaw("CONCAT(first_name, ' ', last_name) LIKE '%$name%'")
-            ->paginate(5);
+            ->whereRaw('CONCAT(first_name, " ", last_name) LIKE "%' . $name .'%"')
+            ->paginate(20);
 
         return View::make('components.student.table', [
             'promotion' => $promotion,
