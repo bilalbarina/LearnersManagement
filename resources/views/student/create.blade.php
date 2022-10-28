@@ -1,5 +1,5 @@
 @extends('layouts.master', [
-    'title' => 'Create Student',
+    'title' => 'Créer un étudiant',
 ])
 
 @section('body')

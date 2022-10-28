@@ -1,5 +1,5 @@
 @extends('layouts.master', [
-    'title' => 'Create Student',
+    'title' => 'Étudiant',
 ])
 
 @section('body')
@@ -30,7 +30,7 @@
                     <input type="email" name="email" placeholder="Email" value="{{ $student->email }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-4 p-2.5">
                     <button type="submit" class="py-2 px-4 bg-blue-600 text-white rounded-full text-xs font-semibold mt-4">
-                        Update Student
+                        Mise à jour
                     </button>
                 </form>
             </div>
